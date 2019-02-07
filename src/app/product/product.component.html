@@ -1,5 +1,50 @@
-<ul>
-    <li *ngFor="let product of products">
-        <h3> Ref : {{product.ref}} - Quantity : {{product.quantity}}</h3>
-    </li>
-</ul>
+
+
+<div class="container">
+        <div class="row">
+             <div class="col-lg-7">
+                 <table class="table table-over">
+                     <thead>
+                         <tr>
+                             <th>Ref</th><th>Quantity</th><th>Price</th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                            <tr *ngFor="let product of products">
+                                    <td> {{product.ref}}</td> 
+                                    <td>  {{product.quantity}}</td>
+                                    <td>  {{product.unitPrice}}</td>
+                            </tr>
+                     </tbody>
+                 </table>
+            </div>
+            <div class="col-lg-5">
+               <div class="card">
+                    <div class="card-header bg-info text-white">
+                        Add product
+                    </div>
+                    <div class="card-body">
+                        <form action="" [formGroup]="productForm">
+                           <div class="form-group"> 
+                              <label >Reference</label>
+                               <input type="text" class="form-control" formControlName="ref">
+                            </div>
+                            <div class="alert alert-danger" *ngIf="productForm.controls['ref'].invalid &&  ( productForm.controls['ref'].touched || productForm.controls['ref'].dirty )">
+                                Reference is required
+                            </div>
+                            <div class="form-group"> 
+                                    <label >Quantity</label>
+                                     <input type="number" class="form-control" formControlName="quantity">
+                            </div>
+                            <div class="form-group"> 
+                                        <label >Unit Price</label>
+                                         <input type="text" class="form-control" formControlName="unitPrice">
+                            </div>
+                            <button class="button button-success">Add</button>
+                        </form>
+                    </div>
+                    <div class="card-footer"></div>
+               </div>
+            </div>
+        </div>
+</div>

@@ -9,6 +9,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ContentComponent } from './content/content.component';
 import { DashbordComponent } from './dashbord/dashbord.component';
 import { AppRoutingModule } from './app.routing.module';
+import {ReactiveFormsModule} from '@angular/forms'
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { AppRoutingModule } from './app.routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [ProductMockService ],
   bootstrap: [AppComponent]
